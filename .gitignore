@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.env
+.vscode
+.agent
+.DS_Store
+*.log
+login.json
+testsprite_tests/tmp/config.json
+
+# CommandCode & test related
+.commandcode/
+.testsprite/
+testsprite_tests/
+prds/
+AGENTS.md
+COMMANDCODE-CHAT-LINK.md
+BUILD_COMMAND.txt
+backend/MCP.md
+backend/src/tests/
+.kiro/
