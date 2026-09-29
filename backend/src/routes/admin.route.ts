@@ -14,6 +14,7 @@ import {
 } from "../middlewares/multer.middleware";
 import { passportAuthenticateJwt } from "../config/passport.config";
 import { requireAdmin } from "../middlewares/requireAdmin.middleware";
+import { aiGenerateRateLimiter } from "../middlewares/rateLimit.middleware";
 
 const adminRoutes = Router();
 
@@ -22,7 +23,11 @@ adminRoutes.use(requireAdmin);
 
 adminRoutes.get("/analytics", getAdminAnalyticsController);
 adminRoutes.get("/analytics", getAdminAnalyticsController);
-adminRoutes.post("/ai/generate", generateAIAdminController);
+adminRoutes.post(
+  "/ai/generate",
+  aiGenerateRateLimiter,
+  generateAIAdminController
+);
 adminRoutes.get("/orders", getAdminOrdersController);
 adminRoutes.put("/orders/:id/status", updateOrderStatusController);
 adminRoutes.get("/products", getProductsForAdminController);
